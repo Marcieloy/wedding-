@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosa & John Wedding Invitation</title>
     
+    <!-- Embed fonts directly inside the header -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great_Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
@@ -33,7 +34,7 @@
             align-items: center;
             justify-content: flex-start;
             min-height: 100vh;
-            padding: 90px 20px 40px 20px;
+            padding: 110px 20px 40px 20px; /* Increased top padding so navbar doesn't block content */
             gap: 45px;
         }
 
@@ -46,7 +47,7 @@
             background-color: var(--burgundy);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             z-index: 1000;
-            padding: 15px 0;
+            padding: 10px 0; /* Slightly tighter vertical padding for better balance */
         }
 
         .nav-container {
@@ -58,19 +59,24 @@
             padding: 0 25px;
         }
 
+        /* FIXED LOGO FONT (from image_5a6a59.png) */
         .logo {
-            font-family: 'Great Vibes', cursive;
-            font-size: 28px;
+            font-family: 'Great Vibes', cursive !important; /* Force elegant script font */
+            font-size: 34px; /* Slightly larger to showcase the script elegance */
             color: var(--cream-bg);
+            font-weight: 400;
+            text-transform: none; /* Keeps it from accidentally going ALL CAPS */
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
             gap: 25px;
+            align-items: center;
         }
 
         .nav-link {
+            font-family: 'Cinzel', serif; /* Use matching clean serif for links */
             color: var(--cream-bg);
             text-decoration: none;
             font-size: 11px;
@@ -98,7 +104,7 @@
             align-items: center;
             text-align: center;
             border-radius: 4px;
-            scroll-margin-top: 100px;
+            scroll-margin-top: 110px;
         }
 
         /* Double-Line Invitation Borders */
@@ -336,7 +342,7 @@
         /* RESPONSIVE LAYOUT BREAKPOINTS */
         @media (max-width: 768px) {
             body {
-                padding-top: 80px;
+                padding-top: 95px;
             }
 
             .font-script-headline {
@@ -347,11 +353,29 @@
                 flex-direction: column;
                 gap: 5px;
             }
+
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 26px;
+            }
+
+            .nav-menu {
+                gap: 12px;
+            }
+
+            .nav-link {
+                font-size: 9px;
+                letter-spacing: 1px;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVIGATION HEADER -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">Rosa & John</div>
@@ -364,6 +388,7 @@
         </div>
     </nav>
 
+    <!-- SHEET 1: MAIN WEDDING HERO INVITATION -->
     <div class="invitation-card" id="main-invitation">
         <div class="card-border"></div>
         <div class="corner-accent tl"></div>
@@ -389,6 +414,7 @@
         </p>
     </div>
 
+    <!-- SHEET 2: THE WEDDING ENTOURAGE -->
     <div class="invitation-card" id="wedding-entourage">
         <div class="card-border"></div>
         <div class="corner-accent tl"></div>
@@ -397,6 +423,7 @@
         <p class="font-serif-caps" style="font-size: 11px; color: var(--dusty-rose); margin-top: 15px;">John & Rosa</p>
         <h2 class="font-script-headline" style="font-size: 48px; margin-bottom: 15px;">Wedding Entourage</h2>
 
+        <!-- Parents -->
         <div class="grid-row">
             <div class="grid-col">
                 <div class="section-title">Bride's Parents</div>
@@ -416,6 +443,7 @@
 
         <div class="heart-divider">♥</div>
 
+        <!-- Principal Sponsors -->
         <div class="section-title">Principal Sponsors</div>
         <div class="subtitle-italic">To Stand As Witnesses To Our Vows</div>
         <div class="font-names" style="line-height: 2.2;">
@@ -431,6 +459,7 @@
 
         <div class="heart-divider">♥</div>
 
+        <!-- Secondary Sponsors -->
         <div class="section-title">Secondary Sponsors</div>
         <div class="subtitle-italic">To Assist Us On Our Needs</div>
         
@@ -453,6 +482,7 @@
 
         <div class="heart-divider">♥</div>
 
+        <!-- Bearers -->
         <div class="grid-row">
             <div class="grid-col">
                 <div class="section-title">Ring & Arrhae Bearer</div>
@@ -468,6 +498,7 @@
 
         <div class="heart-divider">♥</div>
 
+        <!-- Flower Girls -->
         <div class="section-title">Flower Girls</div>
         <div class="subtitle-italic">To Shower Our Aisle With Flowers</div>
         <div class="font-names">
@@ -476,6 +507,7 @@
         </div>
     </div>
 
+    <!-- SHEET 3: RECEPTION VENUE MAP DETAILS -->
     <div class="invitation-card" id="wedding-reception">
         <div class="card-border"></div>
         <div class="corner-accent tl"></div>
@@ -496,10 +528,11 @@
         </div>
 
         <div class="map-wrapper">
-            <iframe src="http://googleusercontent.com/maps.google.com/6" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://maps.google.com/maps?q=Jayraldine's%20Catering%20Service%20Hall%20518%20V%20Rama%20Ave%20Cebu%20City&t=&z=15&ie=UTF-8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
 
+    <!-- SHEET 4: RSVP DIGITAL RESPONSE FORM -->
     <div class="invitation-card" id="wedding-rsvp">
         <div class="card-border"></div>
         <div class="corner-accent tl"></div>
@@ -540,6 +573,7 @@
         </form>
     </div>
 
+    <!-- INTERACTION SCRIPTS Engine -->
     <script>
         function scrollToId(id) {
             const element = document.getElementById(id);
