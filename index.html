@@ -18,6 +18,13 @@
             --cream-bg: #FAF5F2;
             --blush-gradient: #F5E6E1;
             --text-dark: #3D1416;
+            
+            /* Theme Swatches extracted from 9f451229-9111-4280-910d-8f31c6e0c2cf.jpg */
+            --palette-maroon: #4A1214;
+            --palette-wine: #722024;
+            --palette-rose: #C98A81;
+            --palette-blush: #F7B5B0;
+            --palette-pink: #FCD6D3;
         }
 
         * {
@@ -59,10 +66,10 @@
             padding: 0 25px;
         }
 
-        /* FIXED LOGO FONT (Fixes image_5a0fe6.png) */
+        /* FIXED LOGO FONT */
         .logo {
             font-family: 'Allura', cursive !important;
-            font-size: 38px; /* Adjusted to showcase the fluid script style */
+            font-size: 38px;
             color: var(--cream-bg);
             font-weight: 400;
             text-transform: none;
@@ -82,7 +89,7 @@
             text-decoration: none;
             font-size: 13px;
             font-weight: 600;
-            letter-spacing: 3px; /* Clean tracking matching requirements */
+            letter-spacing: 3px;
             text-transform: uppercase;
             transition: color 0.3s ease;
             cursor: pointer;
@@ -139,17 +146,17 @@
         .font-serif-caps {
             font-family: 'Cormorant Garamond', serif;
             font-size: 15px;
-            letter-spacing: 3.5px; /* Clean tracking around 250-350 */
+            letter-spacing: 3.5px;
             color: var(--burgundy);
             text-transform: uppercase;
-            font-weight: 600; /* SemiBold */
+            font-weight: 600;
             margin-bottom: 10px;
             z-index: 4;
         }
 
         .font-script-headline {
             font-family: 'Allura', cursive;
-            font-size: 82px; /* Elevated size for natural cursive feel */
+            font-size: 82px;
             color: var(--burgundy);
             line-height: 0.9;
             margin: 0;
@@ -172,7 +179,7 @@
             color: var(--text-dark);
             line-height: 1.8;
             z-index: 4;
-            font-weight: 400; /* Regular */
+            font-weight: 400;
         }
 
         .font-names {
@@ -181,7 +188,7 @@
             letter-spacing: 2.5px;
             line-height: 1.8;
             color: var(--text-dark);
-            font-weight: 600; /* SemiBold */
+            font-weight: 600;
         }
 
         /* DIVIDERS */
@@ -207,7 +214,7 @@
             background-color: var(--dusty-rose);
         }
 
-        /* GRID STRUCTURES FOR ENTOURAGE */
+        /* GRID STRUCTURES */
         .grid-row {
             display: flex;
             justify-content: space-between;
@@ -224,7 +231,7 @@
         .section-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 17px;
-            letter-spacing: 3px; /* Cormorant Garamond SemiBold with wide spacing */
+            letter-spacing: 3px;
             color: var(--burgundy);
             font-weight: 600;
             text-transform: uppercase;
@@ -274,6 +281,23 @@
             margin: 15px 0;
             border: 1px solid var(--dusty-rose);
             z-index: 4;
+        }
+
+        /* COLOR PALETTE GUIDE IMPLEMENTATION */
+        .palette-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            z-index: 4;
+        }
+
+        .color-swatch {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
         /* FORM INPUT STYLING */
@@ -389,6 +413,7 @@
                 <li><a onclick="scrollToId('wedding-entourage')" class="nav-link">Entourage</a></li>
                 <li><a onclick="scrollToId('wedding-reception')" class="nav-link">Reception</a></li>
                 <li><a onclick="scrollToId('wedding-rsvp')" class="nav-link">RSVP</a></li>
+                <li><a onclick="scrollToId('wedding-details')" class="nav-link">Details</a></li>
             </ul>
         </div>
     </nav>
@@ -576,6 +601,53 @@
 
             <button type="submit" class="submit-btn">Submit RSVP</button>
         </form>
+    </div>
+
+    <!-- SHEET 5: FINER DETAILS (ATTIRE & GIFT GUIDE) -->
+    <div class="invitation-card" id="wedding-details">
+        <div class="card-border"></div>
+        <div class="corner-accent tl"></div>
+        <div class="corner-accent br"></div>
+
+        <h2 class="font-script-headline" style="font-size: 58px; margin-top: 15px;">Finer Details</h2>
+        <p class="font-serif-caps" style="font-size: 13px; color: var(--dusty-rose); margin-bottom: 25px;">Attire Guide</p>
+
+        <p class="font-body-subtext" style="font-size: 14px; max-width: 420px; line-height: 1.6;">
+            We encourage you to dress according to our wedding theme. Please see our chosen color palette below:
+        </p>
+
+        <!-- Dynamic Color Palette Circles extracted from 9f451229-9111-4280-910d-8f31c6e0c2cf.jpg -->
+        <div class="palette-container">
+            <div class="color-swatch" style="background-color: var(--palette-maroon);" title="Deep Maroon"></div>
+            <div class="color-swatch" style="background-color: var(--palette-wine);" title="Wine Burgundy"></div>
+            <div class="color-swatch" style="background-color: var(--palette-rose);" title="Dusty Rose"></div>
+            <div class="color-swatch" style="background-color: var(--palette-blush);" title="Blush"></div>
+            <div class="color-swatch" style="background-color: var(--palette-pink);" title="Soft Pink"></div>
+        </div>
+
+        <div class="grid-row" style="margin-top: 10px;">
+            <div class="grid-col">
+                <div class="section-title" style="font-size: 14px;">For Entourage</div>
+                <div class="subtitle-italic" style="font-size: 13px; margin-bottom: 5px;">Formal Attire</div>
+                <p class="font-body-subtext" style="font-size: 14px;">Tailored suits / Theme-colored evening gowns</p>
+            </div>
+            <div class="grid-col">
+                <div class="section-title" style="font-size: 14px;">For Guests</div>
+                <div class="subtitle-italic" style="font-size: 13px; margin-bottom: 5px;">Semi-Formal Attire</div>
+                <p class="font-body-subtext" style="font-size: 14px;">Barong or Slacks with long sleeves / Elegant dresses</p>
+            </div>
+        </div>
+
+        <p class="subtitle-italic" style="margin-top: 25px; color: var(--burgundy); font-weight: 600; font-size: 12px; letter-spacing: 1.5px;">
+            ⚠️ Friendly Reminder:<br>Please avoid wearing t-shirts, sandos, denims, and slippers.
+        </p>
+
+        <div class="heart-divider" style="margin: 25px 0 15px 0;">♥</div>
+
+        <div class="section-title" style="font-size: 15px; margin-top: 5px;">Gift Guide</div>
+        <p class="font-body-subtext" style="font-size: 14px; max-width: 420px; line-height: 1.6; margin-bottom: 15px;">
+            With all that we have, we are truly blessed. Your presence and prayers are all that we request.
+        </p>
     </div>
 
     <!-- INTERACTION SCRIPTS Engine -->
