@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosa & John Wedding Invitation</title>
     
-    <!-- Embed fonts directly inside the header -->
+    <!-- Google Fonts: Loading Allura & Cormorant Garamond directly -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great_Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
     <style>
         /* COLOR PALETTE */
@@ -28,13 +28,13 @@
 
         body {
             background-color: #121212;
-            font-family: 'Cinzel', serif;
+            font-family: 'Cormorant Garamond', serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             min-height: 100vh;
-            padding: 110px 20px 40px 20px; /* Increased top padding so navbar doesn't block content */
+            padding: 120px 20px 40px 20px;
             gap: 45px;
         }
 
@@ -47,7 +47,7 @@
             background-color: var(--burgundy);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             z-index: 1000;
-            padding: 10px 0; /* Slightly tighter vertical padding for better balance */
+            padding: 12px 0;
         }
 
         .nav-container {
@@ -59,13 +59,14 @@
             padding: 0 25px;
         }
 
-        /* FIXED LOGO FONT (from image_5a6a59.png) */
+        /* FIXED LOGO FONT (Fixes image_5a0fe6.png) */
         .logo {
-            font-family: 'Great Vibes', cursive !important; /* Force elegant script font */
-            font-size: 34px; /* Slightly larger to showcase the script elegance */
+            font-family: 'Allura', cursive !important;
+            font-size: 38px; /* Adjusted to showcase the fluid script style */
             color: var(--cream-bg);
             font-weight: 400;
-            text-transform: none; /* Keeps it from accidentally going ALL CAPS */
+            text-transform: none;
+            line-height: 1;
         }
 
         .nav-menu {
@@ -76,12 +77,12 @@
         }
 
         .nav-link {
-            font-family: 'Cinzel', serif; /* Use matching clean serif for links */
+            font-family: 'Cormorant Garamond', serif;
             color: var(--cream-bg);
             text-decoration: none;
-            font-size: 11px;
+            font-size: 13px;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 3px; /* Clean tracking matching requirements */
             text-transform: uppercase;
             transition: color 0.3s ease;
             cursor: pointer;
@@ -98,13 +99,13 @@
             background: radial-gradient(circle, var(--cream-bg) 60%, var(--blush-gradient) 100%);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
             position: relative;
-            padding: 65px 40px;
+            padding: 65px 45px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             border-radius: 4px;
-            scroll-margin-top: 110px;
+            scroll-margin-top: 120px;
         }
 
         /* Double-Line Invitation Borders */
@@ -136,56 +137,57 @@
 
         /* THEMATIC FONTS & TYPOGRAPHY SYSTEM */
         .font-serif-caps {
-            font-family: 'Cinzel', serif;
-            font-size: 13px;
-            letter-spacing: 3px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;
+            letter-spacing: 3.5px; /* Clean tracking around 250-350 */
             color: var(--burgundy);
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 600; /* SemiBold */
             margin-bottom: 10px;
             z-index: 4;
         }
 
         .font-script-headline {
-            font-family: 'Great Vibes', cursive;
-            font-size: 76px;
+            font-family: 'Allura', cursive;
+            font-size: 82px; /* Elevated size for natural cursive feel */
             color: var(--burgundy);
-            line-height: 1.1;
+            line-height: 0.9;
             margin: 0;
             z-index: 4;
             font-weight: 400;
         }
 
         .font-ampersand {
-            font-family: 'Cinzel', serif;
-            font-size: 24px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
             color: var(--dusty-rose);
             margin: 5px 0;
             z-index: 4;
         }
 
         .font-body-subtext {
-            font-family: 'Cinzel', serif;
-            font-size: 13px;
-            letter-spacing: 2px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            letter-spacing: 2.5px;
             color: var(--text-dark);
             line-height: 1.8;
             z-index: 4;
+            font-weight: 400; /* Regular */
         }
 
         .font-names {
-            font-family: 'Cinzel', serif;
-            font-size: 13px;
-            letter-spacing: 1.5px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;
+            letter-spacing: 2.5px;
             line-height: 1.8;
             color: var(--text-dark);
-            font-weight: 600;
+            font-weight: 600; /* SemiBold */
         }
 
         /* DIVIDERS */
         .heart-divider {
             color: var(--burgundy);
-            font-size: 10px;
+            font-size: 11px;
             margin: 20px 0;
             display: flex;
             align-items: center;
@@ -193,6 +195,8 @@
             width: 100%;
             justify-content: center;
             z-index: 4;
+            font-weight: 600;
+            letter-spacing: 3px;
         }
 
         .heart-divider::before,
@@ -218,24 +222,23 @@
         }
 
         .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: 14px;
-            letter-spacing: 2px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 17px;
+            letter-spacing: 3px; /* Cormorant Garamond SemiBold with wide spacing */
             color: var(--burgundy);
-            font-weight: 700;
+            font-weight: 600;
             text-transform: uppercase;
             margin-top: 15px;
             margin-bottom: 6px;
         }
 
         .subtitle-italic {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: 10px;
+            font-size: 14px;
             letter-spacing: 1px;
             color: var(--dusty-rose);
             margin-bottom: 12px;
-            text-transform: uppercase;
         }
 
         /* RECEPTION VENUE CONTAINERS */
@@ -250,18 +253,19 @@
         }
 
         .venue-card h3 {
-            font-size: 13px;
-            letter-spacing: 2px;
+            font-size: 16px;
+            letter-spacing: 2.5px;
             color: var(--burgundy);
             margin-bottom: 6px;
             text-transform: uppercase;
+            font-weight: 600;
         }
 
         .venue-card p {
-            font-size: 12px;
+            font-size: 15px;
             color: var(--text-dark);
             line-height: 1.6;
-            font-weight: 600;
+            font-weight: 400;
         }
 
         .map-wrapper {
@@ -282,11 +286,11 @@
 
         .form-group label {
             display: block;
-            font-size: 11px;
+            font-size: 14px;
             letter-spacing: 2px;
             color: var(--text-dark);
             margin-bottom: 6px;
-            font-weight: 700;
+            font-weight: 600;
             text-transform: uppercase;
         }
 
@@ -296,10 +300,11 @@
             width: 100%;
             padding: 12px;
             border: 1px solid var(--dusty-rose);
-            font-family: 'Cinzel', serif;
-            font-size: 12px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;
             color: var(--text-dark);
             background-color: rgba(255, 255, 255, 0.85);
+            font-weight: 400;
         }
 
         .radio-options {
@@ -312,7 +317,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 12px;
+            font-size: 15px;
             text-transform: none;
             letter-spacing: 0;
             font-weight: 600;
@@ -325,9 +330,9 @@
             background-color: var(--burgundy);
             color: #fff;
             border: none;
-            font-family: 'Cinzel', serif;
-            font-size: 13px;
-            letter-spacing: 2px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;
+            letter-spacing: 3px;
             font-weight: 600;
             text-transform: uppercase;
             cursor: pointer;
@@ -342,11 +347,11 @@
         /* RESPONSIVE LAYOUT BREAKPOINTS */
         @media (max-width: 768px) {
             body {
-                padding-top: 95px;
+                padding-top: 105px;
             }
 
             .font-script-headline {
-                font-size: 58px;
+                font-size: 64px;
             }
 
             .grid-row {
@@ -359,7 +364,7 @@
             }
 
             .logo {
-                font-size: 26px;
+                font-size: 32px;
             }
 
             .nav-menu {
@@ -367,8 +372,8 @@
             }
 
             .nav-link {
-                font-size: 9px;
-                letter-spacing: 1px;
+                font-size: 11px;
+                letter-spacing: 1.5px;
             }
         }
     </style>
@@ -400,12 +405,12 @@
         <div class="font-ampersand">&</div>
         <h1 class="font-script-headline" style="margin-bottom: 20px;">John</h1>
 
-        <p class="font-serif-caps" style="font-size: 11px;">Invite You To Celebrate Their Wedding</p>
+        <p class="font-serif-caps" style="font-size: 13px;">Invite You To Celebrate Their Wedding</p>
         
         <div class="heart-divider">MONDAY</div>
         
-        <p class="font-body-subtext" style="font-size: 24px; font-weight: 700; letter-spacing: 4px;">JULY 20, 2026</p>
-        <p class="font-serif-caps" style="color: var(--burgundy); margin-top: 5px;">At 3:30 In The Afternoon</p>
+        <p class="font-body-subtext" style="font-size: 26px; font-weight: 600; letter-spacing: 4px;">JULY 20, 2026</p>
+        <p class="font-serif-caps" style="color: var(--burgundy); margin-top: 5px; font-size: 13px;">At 3:30 In The Afternoon</p>
 
         <div class="heart-divider">♥</div>
         
@@ -420,8 +425,8 @@
         <div class="corner-accent tl"></div>
         <div class="corner-accent br"></div>
 
-        <p class="font-serif-caps" style="font-size: 11px; color: var(--dusty-rose); margin-top: 15px;">John & Rosa</p>
-        <h2 class="font-script-headline" style="font-size: 48px; margin-bottom: 15px;">Wedding Entourage</h2>
+        <p class="font-serif-caps" style="font-size: 13px; color: var(--dusty-rose); margin-top: 15px;">John & Rosa</p>
+        <h2 class="font-script-headline" style="font-size: 58px; margin-bottom: 15px;">Wedding Entourage</h2>
 
         <!-- Parents -->
         <div class="grid-row">
@@ -465,17 +470,17 @@
         
         <div class="grid-row">
             <div class="grid-col">
-                <div class="font-serif-caps" style="font-size: 11px; margin-bottom: 2px;">Candle Sponsors</div>
+                <div class="font-serif-caps" style="font-size: 13px; margin-bottom: 2px;">Candle Sponsors</div>
                 <div class="font-names">Engr. Clifford M. Supilanas &<br>Mrs. Genevieve Ivy C. Supilanas</div>
             </div>
         </div>
         <div class="grid-row" style="margin-top: 10px;">
             <div class="grid-col">
-                <div class="font-serif-caps" style="font-size: 11px; margin-bottom: 2px;">Veil Sponsors</div>
+                <div class="font-serif-caps" style="font-size: 13px; margin-bottom: 2px;">Veil Sponsors</div>
                 <div class="font-names">Dr. Mark Luster Ybañez, M.D. &<br>Dr. Vina Clare G. Ybañez, M.D.</div>
             </div>
             <div class="grid-col">
-                <div class="section-title" style="margin-top:0; font-size: 11px; letter-spacing: 3px;">Cord Sponsors</div>
+                <div class="section-title" style="margin-top:0; font-size: 13px;">Cord Sponsors</div>
                 <div class="font-names">Mr. Nico Romualdez &<br>Mrs. Iliana Kristin M. Romualdez</div>
             </div>
         </div>
@@ -538,7 +543,7 @@
         <div class="corner-accent tl"></div>
         <div class="corner-accent br"></div>
 
-        <h2 class="font-script-headline" style="font-size: 52px; margin-top: 15px;">Kindly Respond</h2>
+        <h2 class="font-script-headline" style="font-size: 58px; margin-top: 15px;">Kindly Respond</h2>
         <p class="subtitle-italic" style="margin-bottom: 30px;">Please reply by July 10, 2026</p>
 
         <form id="rsvpFormSubmission" style="width: 100%;">
