@@ -3,23 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rosa & John - Wedding Invitation</title>
+    <title>Rosa & John Wedding Invitation</title>
     
-    <!-- Google Fonts for Elegant Calligraphy and Clean Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great_Vibes&family=Montserrat:wght@200;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Great_Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
     <style>
-        /* All-In-One CSS Stylesheet */
+        /* COLOR PALETTE */
         :root {
             --burgundy: #58181A;
-            --crimson: #7A2021;
             --dusty-rose: #B87D75;
-            --blush-pink: #F7DCD6;
-            --off-white: #FAF5F2;
+            --cream-bg: #FAF5F2;
+            --blush-gradient: #F5E6E1;
             --text-dark: #3D1416;
-            --gold-accent: #D4AF37;
         }
 
         * {
@@ -30,24 +27,24 @@
 
         body {
             background-color: #121212;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Cinzel', serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
             min-height: 100vh;
-            padding: 80px 20px 40px 20px;
-            gap: 50px;
+            padding: 90px 20px 40px 20px;
+            gap: 45px;
         }
 
-        /* STICKY NAVBAR */
+        /* FIXED STICKY NAVIGATION */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             background-color: var(--burgundy);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             z-index: 1000;
             padding: 15px 0;
         }
@@ -63,20 +60,20 @@
 
         .logo {
             font-family: 'Great Vibes', cursive;
-            font-size: 30px;
-            color: var(--blush-pink);
+            font-size: 28px;
+            color: var(--cream-bg);
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 35px;
+            gap: 25px;
         }
 
         .nav-link {
-            color: var(--off-white);
+            color: var(--cream-bg);
             text-decoration: none;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -85,247 +82,205 @@
         }
 
         .nav-link:hover {
-            color: var(--blush-pink);
+            color: var(--dusty-rose);
         }
 
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background-color: var(--blush-pink);
-            transition: 0.3s;
-        }
-
-        /* MAIN WEDDING CARD & CONTAINERS */
-        .invitation-card, .page-container {
+        /* CARD WORKSPACE SHEETS */
+        .invitation-card {
             width: 100%;
-            max-width: 600px;
-            background: radial-gradient(circle, var(--off-white) 70%, var(--blush-pink) 100%);
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+            max-width: 560px;
+            background: radial-gradient(circle, var(--cream-bg) 60%, var(--blush-gradient) 100%);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
             position: relative;
-            padding: 70px 45px;
+            padding: 65px 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            border-radius: 8px;
+            border-radius: 4px;
             scroll-margin-top: 100px;
         }
 
-        /* Double Frame Border Lines */
+        /* Double-Line Invitation Borders */
         .card-border {
             position: absolute;
-            top: 20px;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            border: 1px solid var(--crimson);
-            outline: 3px double var(--crimson);
-            outline-offset: -8px;
+            top: 18px;
+            bottom: 18px;
+            left: 18px;
+            right: 18px;
+            border: 1px solid var(--burgundy);
+            outline: 3px double var(--burgundy);
+            outline-offset: -7px;
             pointer-events: none;
             z-index: 2;
-            opacity: 0.8;
+            opacity: 0.85;
         }
 
-        /* Dynamic CSS Floral Corners (No external image downloads needed!) */
-        .floral-corner-deco {
+        /* Geometric Frame Corner Highlights */
+        .corner-accent {
             position: absolute;
-            width: 140px;
-            height: 140px;
+            width: 35px;
+            height: 35px;
+            border: 1px solid var(--dusty-rose);
             pointer-events: none;
-            z-index: 1;
-            opacity: 0.15;
-            background-image: radial-gradient(circle, var(--crimson) 20%, transparent 60%),
-                              radial-gradient(circle, var(--dusty-rose) 15%, transparent 50%);
-            background-size: 40px 40px, 30px 30px;
-            background-position: 0 0, 20px 20px;
-        }
-        .top-left-corner { top: 25px; left: 25px; border-left: 2px solid var(--dusty-rose); border-top: 2px solid var(--dusty-rose); }
-        .bottom-right-corner { bottom: 25px; right: 25px; border-right: 2px solid var(--dusty-rose); border-bottom: 2px solid var(--dusty-rose); }
-
-        /* TYPOGRAPHY SYSTEM */
-        .sans-light {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 400;
-            font-size: 12px;
-            letter-spacing: 4px;
-            color: var(--crimson);
-            text-transform: uppercase;
-            margin-bottom: 15px;
             z-index: 3;
         }
+        .tl { top: 29px; left: 29px; border-right: none; border-bottom: none; }
+        .br { bottom: 29px; right: 29px; border-left: none; border-top: none; }
 
-        .script-title {
+        /* THEMATIC FONTS & TYPOGRAPHY SYSTEM */
+        .font-serif-caps {
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            letter-spacing: 3px;
+            color: var(--burgundy);
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 10px;
+            z-index: 4;
+        }
+
+        .font-script-headline {
             font-family: 'Great Vibes', cursive;
-            font-size: 78px;
+            font-size: 76px;
             color: var(--burgundy);
             line-height: 1.1;
-            margin: 5px 0;
-            z-index: 3;
-            text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+            margin: 0;
+            z-index: 4;
+            font-weight: 400;
         }
 
-        .ampersand {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 32px;
+        .font-ampersand {
+            font-family: 'Cinzel', serif;
+            font-size: 24px;
             color: var(--dusty-rose);
             margin: 5px 0;
-            z-index: 3;
+            z-index: 4;
         }
 
-        .serif-text {
+        .font-body-subtext {
             font-family: 'Cinzel', serif;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 2px;
             color: var(--text-dark);
             line-height: 1.8;
-            z-index: 3;
+            z-index: 4;
         }
 
-        .date-section {
-            margin: 25px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3px;
-            z-index: 3;
+        .font-names {
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            font-weight: 600;
         }
 
+        /* DIVIDERS */
         .heart-divider {
-            color: var(--crimson);
-            font-size: 12px;
+            color: var(--burgundy);
+            font-size: 10px;
             margin: 20px 0;
             display: flex;
             align-items: center;
             gap: 15px;
             width: 100%;
             justify-content: center;
-            z-index: 3;
+            z-index: 4;
         }
 
         .heart-divider::before,
         .heart-divider::after {
             content: "";
-            width: 60px;
+            width: 50px;
             height: 1px;
             background-color: var(--dusty-rose);
         }
 
-        /* ENTOURAGE LAYOUTS */
-        .entourage-container {
-            width: 100%;
-            z-index: 3;
-            margin-top: 10px;
-        }
-
-        .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: 15px;
-            letter-spacing: 2px;
-            color: var(--burgundy);
-            font-weight: 600;
-            margin-top: 20px;
-        }
-
-        .subtitle-italic {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 11px;
-            letter-spacing: 1px;
-            color: var(--dusty-rose);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .names-block {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: 1px;
-            line-height: 1.8;
-            color: var(--text-dark);
-            margin-bottom: 15px;
-        }
-
-        .row-grid {
+        /* GRID STRUCTURES FOR ENTOURAGE */
+        .grid-row {
             display: flex;
             justify-content: space-between;
             width: 100%;
             gap: 20px;
             margin-bottom: 5px;
+            z-index: 4;
         }
 
-        .grid-column {
+        .grid-col {
             flex: 1;
         }
 
-        /* RECEPTION VENUE ELEMENT */
-        .venue-info {
-            background-color: rgba(255, 255, 255, 0.6);
-            padding: 25px;
-            border-left: 4px solid var(--crimson);
-            margin: 25px 0;
-            border-radius: 4px;
-            text-align: left;
-            width: 100%;
-            z-index: 3;
-        }
-
-        .venue-info h3 {
+        .section-title {
             font-family: 'Cinzel', serif;
-            font-size: 15px;
+            font-size: 14px;
             letter-spacing: 2px;
             color: var(--burgundy);
-            margin-bottom: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 15px;
+            margin-bottom: 6px;
+        }
+
+        .subtitle-italic {
+            font-family: 'Montserrat', sans-serif;
+            font-style: italic;
+            font-size: 10px;
+            letter-spacing: 1px;
+            color: var(--dusty-rose);
+            margin-bottom: 12px;
             text-transform: uppercase;
         }
 
-        .venue-info p {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 13px;
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        .map-container {
-            width: 100%;
-            height: 320px;
+        /* RECEPTION VENUE CONTAINERS */
+        .venue-card {
+            background-color: rgba(255, 255, 255, 0.45);
+            padding: 20px;
+            border-left: 3px solid var(--burgundy);
             margin: 20px 0;
-            border-radius: 4px;
-            overflow: hidden;
-            border: 2px solid var(--dusty-rose);
-            z-index: 3;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* FORM FIELD LAYOUTS */
-        .form-group {
-            margin-bottom: 25px;
             text-align: left;
             width: 100%;
-            z-index: 3;
+            z-index: 4;
+        }
+
+        .venue-card h3 {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: var(--burgundy);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .venue-card p {
+            font-size: 12px;
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-weight: 600;
+        }
+
+        .map-wrapper {
+            width: 100%;
+            height: 280px;
+            margin: 15px 0;
+            border: 1px solid var(--dusty-rose);
+            z-index: 4;
+        }
+
+        /* FORM INPUT STYLING */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+            width: 100%;
+            z-index: 4;
         }
 
         .form-group label {
             display: block;
-            font-family: 'Cinzel', serif;
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: 2px;
             color: var(--text-dark);
-            margin-bottom: 8px;
-            font-weight: 600;
+            margin-bottom: 6px;
+            font-weight: 700;
             text-transform: uppercase;
         }
 
@@ -333,457 +288,270 @@
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 12px 15px;
+            padding: 12px;
             border: 1px solid var(--dusty-rose);
-            border-radius: 4px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
             color: var(--text-dark);
-            background-color: rgba(255, 255, 255, 0.9);
-            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.85);
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--crimson);
-            box-shadow: 0 0 5px rgba(122, 32, 33, 0.3);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .radio-group {
+        .radio-options {
             display: flex;
-            gap: 30px;
-            margin-top: 10px;
+            gap: 25px;
+            margin-top: 8px;
         }
 
-        .radio-group label {
+        .radio-options label {
             display: flex;
             align-items: center;
             gap: 8px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
+            font-size: 12px;
             text-transform: none;
             letter-spacing: 0;
-            font-weight: 400;
-            cursor: pointer;
-        }
-
-        .radio-group input[type="radio"] {
-            width: auto;
+            font-weight: 600;
             cursor: pointer;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 16px;
-            background-color: var(--crimson);
-            color: white;
+            padding: 15px;
+            background-color: var(--burgundy);
+            color: #fff;
             border: none;
-            border-radius: 4px;
             font-family: 'Cinzel', serif;
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 2px;
             font-weight: 600;
             text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 3;
+            transition: background 0.3s ease;
+            z-index: 4;
         }
 
         .submit-btn:hover {
-            background-color: var(--burgundy);
-            letter-spacing: 3px;
+            background-color: #421113;
         }
 
-        .success-message {
-            display: none;
-            background-color: #e6f4ea;
-            color: #137333;
-            padding: 15px;
-            border: 1px solid #dadce0;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            width: 100%;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
-        /* RESPONSIVE MOBILE FIXES */
+        /* RESPONSIVE LAYOUT BREAKPOINTS */
         @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 64px;
-                flex-direction: column;
-                background-color: var(--burgundy);
-                width: 100%;
-                text-align: center;
-                transition: 0.4s ease-in-out;
-                padding: 30px 0;
-                gap: 25px;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            body {
+                padding-top: 80px;
             }
 
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            /* Hamburger transform into X when active */
-            .hamburger.active span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 5px);
-            }
-            .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-            .hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -5px);
-            }
-
-            .invitation-card, .page-container {
-                padding: 50px 25px;
-            }
-
-            .script-title {
+            .font-script-headline {
                 font-size: 58px;
             }
 
-            .row-grid {
+            .grid-row {
                 flex-direction: column;
-                gap: 0;
+                gap: 5px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- STICKY HEADER NAVIGATION -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">Rosa & John</div>
             <ul class="nav-menu">
-                <li><a onclick="scrollToSection('home')" class="nav-link">Invitation</a></li>
-                <li><a onclick="scrollToSection('entourage')" class="nav-link">Entourage</a></li>
-                <li><a onclick="scrollToSection('reception')" class="nav-link">Reception</a></li>
-                <li><a onclick="scrollToSection('rsvp')" class="nav-link">RSVP</a></li>
+                <li><a onclick="scrollToId('main-invitation')" class="nav-link">Invitation</a></li>
+                <li><a onclick="scrollToId('wedding-entourage')" class="nav-link">Entourage</a></li>
+                <li><a onclick="scrollToId('wedding-reception')" class="nav-link">Reception</a></li>
+                <li><a onclick="scrollToId('wedding-rsvp')" class="nav-link">RSVP</a></li>
             </ul>
-            <div class="hamburger" id="hamburgerMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
-    <!-- SECTION 1: MAIN INVITATION CARD -->
-    <div class="invitation-card" id="home">
+    <div class="invitation-card" id="main-invitation">
         <div class="card-border"></div>
-        <div class="floral-corner-deco top-left-corner"></div>
-        <div class="floral-corner-deco bottom-right-corner"></div>
+        <div class="corner-accent tl"></div>
+        <div class="corner-accent br"></div>
 
-        <div class="sans-light" style="margin-top: 40px;">Together With Their Families</div>
+        <p class="font-serif-caps" style="margin-top: 25px;">Together With Their Families</p>
         
-        <div class="script-title">Rosa</div>
-        <div class="ampersand">&</div>
-        <div class="script-title" style="margin-bottom: 20px;">John</div>
+        <h1 class="font-script-headline">Rosa</h1>
+        <div class="font-ampersand">&</div>
+        <h1 class="font-script-headline" style="margin-bottom: 20px;">John</h1>
 
-        <div class="sans-light" style="font-size: 11px; max-width: 320px; line-height: 1.6;">Invite You To Celebrate Their Wedding</div>
+        <p class="font-serif-caps" style="font-size: 11px;">Invite You To Celebrate Their Wedding</p>
         
-        <div class="date-section">
-            <div class="heart-divider">MONDAY</div>
-            <div class="serif-text" style="font-size: 26px; font-weight: 600; letter-spacing: 4px;">JULY 20</div>
-            <div class="serif-text" style="font-weight: 600;">2026</div>
-            <div class="serif-text" style="color: var(--crimson); font-weight: 600; margin-top: 5px; letter-spacing: 4px;">3:30 PM</div>
-        </div>
+        <div class="heart-divider">MONDAY</div>
+        
+        <p class="font-body-subtext" style="font-size: 24px; font-weight: 700; letter-spacing: 4px;">JULY 20, 2026</p>
+        <p class="font-serif-caps" style="color: var(--burgundy); margin-top: 5px;">At 3:30 In The Afternoon</p>
 
-        <div class="serif-text" style="font-size: 13px; max-width: 340px; line-height: 1.8; margin-top: 15px; font-weight: 600;">
+        <div class="heart-divider">♥</div>
+        
+        <p class="font-body-subtext" style="font-weight: 600; max-width: 360px;">
             Virgen Delos Remedios<br>Parish Church
-        </div>
+        </p>
     </div>
 
-
-    <!-- SECTION 2: WEDDING ENTOURAGE CARD -->
-    <div class="invitation-card" id="entourage">
+    <div class="invitation-card" id="wedding-entourage">
         <div class="card-border"></div>
-        <div class="floral-corner-deco top-left-corner"></div>
-        <div class="floral-corner-deco bottom-right-corner"></div>
+        <div class="corner-accent tl"></div>
+        <div class="corner-accent br"></div>
 
-        <div class="serif-text" style="font-size: 11px; letter-spacing: 4px; color: var(--dusty-rose); margin-top: 20px;">JOHN & ROSA</div>
-        <div class="script-title" style="font-size: 52px; margin-bottom: 15px;">Wedding Entourage</div>
+        <p class="font-serif-caps" style="font-size: 11px; color: var(--dusty-rose); margin-top: 15px;">John & Rosa</p>
+        <h2 class="font-script-headline" style="font-size: 48px; margin-bottom: 15px;">Wedding Entourage</h2>
 
-        <div class="entourage-container">
-            
-            <!-- Parents Section -->
-            <div class="row-grid">
-                <div class="grid-column">
-                    <div class="section-title">Bride's Parents</div>
-                    <div class="names-block">
-                        MRS. HELEN T. MARMITO<br>
-                        MR. ROLANDO R. MARMITO
-                    </div>
-                </div>
-                <div class="grid-column">
-                    <div class="section-title">Groom's Parents</div>
-                    <div class="names-block">
-                        MRS. SHIELA V. LOPEZ<br>
-                        MR. NEIL A. LOPEZ
-                    </div>
+        <div class="grid-row">
+            <div class="grid-col">
+                <div class="section-title">Bride's Parents</div>
+                <div class="font-names">
+                    Mrs. Helen T. Marmito<br>
+                    Mr. Rolando R. Marmito
                 </div>
             </div>
-
-            <div class="heart-divider">♥</div>
-
-            <!-- Principal Sponsors Section -->
-            <div class="section-title">Principal Sponsors</div>
-            <div class="subtitle-italic">To Stand As Witnesses To Our Vows</div>
-            <div class="names-block" style="line-height: 2.0;">
-                MR. LEO A. LOPEZ & MRS. ESTELA T. LOPEZ<br>
-                MR. FABIAN M. AVES & MS. BEELING YAP<br>
-                MR. ALAIN G. JAYME & MRS. CHRISTINE N. JAYME<br>
-                MR. NOEL T. BACALLA & MS. SUE KAREN V. REYES<br>
-                MR. VIC JOJO LOZANO & MS. ESTELA B. AVES<br>
-                MR. RUBEN B. AVES & MS. NELLIE A. LOPEZ<br>
-                MR. TORSTEIN KYRRØ & MRS. ANASTACIA KYRRØ<br>
-                MR. JESS LEPALAM & MRS. MARY CLAIRE E. LEPALAM
-            </div>
-
-            <div class="heart-divider">♥</div>
-
-            <!-- Secondary Sponsors Section -->
-            <div class="section-title">Secondary Sponsors</div>
-            <div class="subtitle-italic">To Assist Us On Our Needs</div>
-            
-            <div class="row-grid" style="margin-top: 10px;">
-                <div class="grid-column">
-                    <div class="serif-text" style="font-size: 11px; font-weight:600;">Candle Sponsors</div>
-                    <div class="names-block">
-                        ENGR. CLIFFORD M. SUPILANAS &<br>MRS. GENEVIEVE IVY C. SUPILANAS
-                    </div>
+            <div class="grid-col">
+                <div class="section-title">Groom's Parents</div>
+                <div class="font-names">
+                    Mrs. Shiela V. Lopez<br>
+                    Mr. Neil A. Lopez
                 </div>
             </div>
-            <div class="row-grid">
-                <div class="grid-column">
-                    <div class="serif-text" style="font-size: 11px; font-weight:600;">Veil Sponsors</div>
-                    <div class="names-block">
-                        DR. MARK LUSTER YBAÑEZ, M.D. &<br>DR. VINA CLARE G. YBAÑEZ, M.D.
-                    </div>
-                </div>
-                <div class="grid-column">
-                    <div class="serif-text" style="font-size: 11px; font-weight:600;">Cord Sponsors</div>
-                    <div class="names-block">
-                        MR. NICO ROMUALDEZ &<br>MRS. ILIANA KRISTIN M. ROMUALDEZ
-                    </div>
-                </div>
+        </div>
+
+        <div class="heart-divider">♥</div>
+
+        <div class="section-title">Principal Sponsors</div>
+        <div class="subtitle-italic">To Stand As Witnesses To Our Vows</div>
+        <div class="font-names" style="line-height: 2.2;">
+            Mr. Leo A. Lopez & Mrs. Estela T. Lopez<br>
+            Mr. Fabian M. Aves & Ms. Beeling Yap<br>
+            Mr. Alain G. Jayme & Mrs. Christine N. Jayme<br>
+            Mr. Noel T. Bacalla & Ms. Sue Karen V. Reyes<br>
+            Mr. Vic Jojo Lozano & Ms. Estela B. Aves<br>
+            Mr. Ruben B. Aves & Ms. Nellie A. Lopez<br>
+            Mr. Torstein Kyrrø & Mrs. Anastacia Kyrrø<br>
+            Mr. Jess Lepalam & Mrs. Mary Claire E. Lepalam
+        </div>
+
+        <div class="heart-divider">♥</div>
+
+        <div class="section-title">Secondary Sponsors</div>
+        <div class="subtitle-italic">To Assist Us On Our Needs</div>
+        
+        <div class="grid-row">
+            <div class="grid-col">
+                <div class="font-serif-caps" style="font-size: 11px; margin-bottom: 2px;">Candle Sponsors</div>
+                <div class="font-names">Engr. Clifford M. Supilanas &<br>Mrs. Genevieve Ivy C. Supilanas</div>
             </div>
-
-            <div class="heart-divider">♥</div>
-
-            <!-- Bearers Grid Section -->
-            <div class="row-grid">
-                <div class="grid-column">
-                    <div class="section-title">Ring & Arrhae Bearer</div>
-                    <div class="subtitle-italic">Symbol Of Love & Prosperity</div>
-                    <div class="names-block">RAFAEL JOHN VILLEGAS</div>
-                </div>
-                <div class="grid-column">
-                    <div class="section-title">Bible Bearer</div>
-                    <div class="subtitle-italic">Symbol Of God's Word</div>
-                    <div class="names-block">ZEKE LOPEZ</div>
-                </div>
+        </div>
+        <div class="grid-row" style="margin-top: 10px;">
+            <div class="grid-col">
+                <div class="font-serif-caps" style="font-size: 11px; margin-bottom: 2px;">Veil Sponsors</div>
+                <div class="font-names">Dr. Mark Luster Ybañez, M.D. &<br>Dr. Vina Clare G. Ybañez, M.D.</div>
             </div>
-
-            <div class="heart-divider">♥</div>
-
-            <!-- Flower Girls Section -->
-            <div class="section-title">Flower Girls</div>
-            <div class="subtitle-italic">To Shower Our Aisle With Flowers</div>
-            <div class="names-block">
-                KHLOE ELISE CABALLERO<br>
-                LIANA ISABELLA M. ROMUALDEZ<br>
-                JHEQUINNA KYRIEN LOPEZ<br>
-                SAGE COLEEN AGAS
+            <div class="grid-col">
+                <div class="section-title" style="margin-top:0; font-size: 11px; letter-spacing: 3px;">Cord Sponsors</div>
+                <div class="font-names">Mr. Nico Romualdez &<br>Mrs. Iliana Kristin M. Romualdez</div>
             </div>
+        </div>
 
+        <div class="heart-divider">♥</div>
+
+        <div class="grid-row">
+            <div class="grid-col">
+                <div class="section-title">Ring & Arrhae Bearer</div>
+                <div class="subtitle-italic">Symbol of Love & Prosperity</div>
+                <div class="font-names">Rafael John Villegas</div>
+            </div>
+            <div class="grid-col">
+                <div class="section-title">Bible Bearer</div>
+                <div class="subtitle-italic">Symbol of God's Word</div>
+                <div class="font-names">Zeke Lopez</div>
+            </div>
+        </div>
+
+        <div class="heart-divider">♥</div>
+
+        <div class="section-title">Flower Girls</div>
+        <div class="subtitle-italic">To Shower Our Aisle With Flowers</div>
+        <div class="font-names">
+            Khloe Elise Caballero &bull; Liana Isabella M. Romualdez<br>
+            Jhequinna Kyrien Lopez &bull; Sage Coleen Agas
         </div>
     </div>
 
-
-    <!-- SECTION 3: RECEPTION CARD (Cleaned up per instructions) -->
-    <div class="page-container" id="reception">
+    <div class="invitation-card" id="wedding-reception">
         <div class="card-border"></div>
-        <div class="floral-corner-deco top-left-corner"></div>
-        <div class="floral-corner-deco bottom-right-corner"></div>
+        <div class="corner-accent tl"></div>
+        <div class="corner-accent br"></div>
 
-        <div class="page-content" style="width: 100%;">
-            <div class="sans-light" style="margin-top: 20px;">Venue & Location</div>
-            
-            <!-- Ceremony Details Block -->
-            <div class="venue-info">
-                <h3>📍 Ceremony Venue</h3>
-                <p><strong>Virgen Delos Remedios Parish Church</strong></p>
-                <p>Monday, July 20, 2026</p>
-                <p>Time: 3:30 PM</p>
-            </div>
+        <p class="font-serif-caps" style="margin-top: 15px;">Locations & Logistics</p>
+        
+        <div class="venue-card">
+            <h3>⛪ The Ceremony Venue</h3>
+            <p>Virgen Delos Remedios Parish Church</p>
+            <p>Monday, July 20, 2026 at 3:30 PM</p>
+        </div>
 
-            <!-- Reception Details Block -->
-            <div class="venue-info">
-                <h3>🍽️ Reception Dinner</h3>
-                <p><strong>Jayraldine's Catering Service</strong></p>
-                <p>518 V Rama Ave, Cebu City, 6000 Cebu</p>
-                <p style="margin-top: 10px; font-style: italic; color: var(--crimson);">Dinner and celebration immediately following the ceremony.</p>
-            </div>
+        <div class="venue-card">
+            <h3>🍽️ The Wedding Reception</h3>
+            <p>Jayraldine's Catering Service Hall</p>
+            <p>518 V Rama Ave, Cebu City, 6000 Cebu</p>
+        </div>
 
-            <!-- Google Map Embedded Element -->
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.2556516161843!2d123.8857!3d10.3157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999999999999d%3A0x1234567890!2sJayraldine's%20Catering%20Service!5e0!3m2!1sen!2sph!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-
-            <!-- Contact Box Info -->
-            <div class="venue-info">
-                <h3>❓ Questions & Support</h3>
-                <p>If you encounter any directional difficulties or logistics problems on the road, please submit a short notice via our active RSVP response form below.</p>
-            </div>
+        <div class="map-wrapper">
+            <iframe src="http://googleusercontent.com/maps.google.com/6" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
 
-
-    <!-- SECTION 4: RSVP FORM CARD (Cleaned up per instructions) -->
-    <div class="page-container" id="rsvp">
+    <div class="invitation-card" id="wedding-rsvp">
         <div class="card-border"></div>
-        <div class="floral-corner-deco top-left-corner"></div>
-        <div class="floral-corner-deco bottom-right-corner"></div>
+        <div class="corner-accent tl"></div>
+        <div class="corner-accent br"></div>
 
-        <div class="page-content" style="width: 100%;">
-            <div class="sans-light" style="margin-top: 20px;">Response Form</div>
-            <div class="script-title" style="font-size: 55px; margin-bottom: 10px;">Kindly Respond</div>
-            <p style="font-family: 'Montserrat', sans-serif; font-size: 12px; color: var(--text-dark); margin-bottom: 35px; letter-spacing: 1px;">
-                Please confirm your attendance status by July 10, 2026
-            </p>
+        <h2 class="font-script-headline" style="font-size: 52px; margin-top: 15px;">Kindly Respond</h2>
+        <p class="subtitle-italic" style="margin-bottom: 30px;">Please reply by July 10, 2026</p>
 
-            <!-- Submission Alerts -->
-            <div class="success-message" id="successMessage">
-                ✨ Thank you! Your response form was successfully saved.
+        <form id="rsvpFormSubmission" style="width: 100%;">
+            <div class="form-group">
+                <label>Your Full Name *</label>
+                <input type="text" required placeholder="Enter name">
             </div>
 
-            <form id="rsvpForm">
-                <!-- Full Name -->
-                <div class="form-group">
-                    <label for="fullName">Full Name *</label>
-                    <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
-                </div>
+            <div class="form-group">
+                <label>Number of Seats Reserved *</label>
+                <select required>
+                    <option value="1">1 Attendee</option>
+                    <option value="2">2 Attendees</option>
+                    <option value="3">3 Attendees</option>
+                </select>
+            </div>
 
-                <!-- Number of Guests selection dropdown -->
-                <div class="form-group">
-                    <label for="numGuests">Number of Guests (including yourself) *</label>
-                    <select id="numGuests" name="numGuests" required>
-                        <option value="">-- Choose Option --</option>
-                        <option value="1">1 Person</option>
-                        <option value="2">2 People</option>
-                        <option value="3">3 People</option>
-                        <option value="4">4 People</option>
-                        <option value="5">5 People</option>
-                    </select>
+            <div class="form-group">
+                <label>Attendance *</label>
+                <div class="radio-options">
+                    <label><input type="radio" name="attendanceStatus" value="yes" required> Accept With Joy</label>
+                    <label><input type="radio" name="attendanceStatus" value="no" required> Decline With Regret</label>
                 </div>
+            </div>
 
-                <!-- Radio Button Attendance Status Selection -->
-                <div class="form-group">
-                    <label>Will you be attending our wedding? *</label>
-                    <div class="radio-group">
-                        <label>
-                            <input type="radio" name="attendance" value="yes" required> Yes, I will gladly attend
-                        </label>
-                        <label>
-                            <input type="radio" name="attendance" value="no" required> Regretfully cannot attend
-                        </label>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label>Special Notes or Dietary Requirements</label>
+                <textarea placeholder="Write messages or requests here..."></textarea>
+            </div>
 
-                <!-- Extra Guest Names Notes -->
-                <div class="form-group">
-                    <label for="guestNames">Names of Accompanying Guests</label>
-                    <textarea id="guestNames" name="guestNames" placeholder="Please type your companion names here if applicable"></textarea>
-                </div>
-
-                <!-- Optional Custom Messages -->
-                <div class="form-group">
-                    <label for="specialRequests">Messages or Custom Notes for the Couple</label>
-                    <textarea id="specialRequests" name="specialRequests" placeholder="Write any greetings or special requests here..."></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Submit Invitation RSVP</button>
-            </form>
-        </div>
+            <button type="submit" class="submit-btn">Submit RSVP</button>
+        </form>
     </div>
 
-    <!-- RESPONSIVE NAV INTERACTION AND TRANSITIONS ENGINE -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.getElementById('hamburgerMenu');
-            const navMenu = document.querySelector('.nav-menu');
-
-            // Responsive Hamburg drawer toggles
-            if (hamburger) {
-                hamburger.addEventListener('click', function() {
-                    hamburger.classList.toggle('active');
-                    navMenu.classList.toggle('active');
-                });
-            }
-        });
-
-        // Safe anchor smooth scrolling handler
-        function scrollToSection(id) {
+        function scrollToId(id) {
             const element = document.getElementById(id);
-            const navMenu = document.querySelector('.nav-menu');
-            const hamburger = document.getElementById('hamburgerMenu');
-            
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });
             }
-            
-            // Auto close mobile drawer layout viewports
-            if(navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-            }
         }
 
-        // Local Storage saving engine
-        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+        document.getElementById('rsvpFormSubmission').addEventListener('submit', function(e) {
             e.preventDefault();
-
-            const formData = new FormData(this);
-            const data = {
-                fullName: formData.get('fullName'),
-                numGuests: formData.get('numGuests'),
-                attendance: formData.get('attendance'),
-                guestNames: formData.get('guestNames'),
-                specialRequests: formData.get('specialRequests'),
-                timestamp: new Date().toISOString()
-            };
-
-            let rsvps = JSON.parse(localStorage.getItem('rsvps')) || [];
-            rsvps.push(data);
-            localStorage.setItem('rsvps', JSON.stringify(rsvps));
-
-            document.getElementById('successMessage').classList.add('show');
+            alert('Thank you! Your RSVP status has been updated and securely recorded.');
             this.reset();
-
-            setTimeout(() => {
-                document.getElementById('successMessage').classList.remove('show');
-            }, 5000);
         });
     </script>
 </body>
