@@ -1,153 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSVP - Rosa & John's Wedding</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great_Vibes&family=Montserrat:wght@200;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<div class="page-container">
+    <div class="card-border"></div>
+    <div class="page-content">
+        <div class="sans-light">RSVP</div>
+        <div class="script-title" style="font-size: 50px;">Kindly Respond</div>
+        <p class="subtitle-italic" style="text-align: center;">Please confirm by July 10, 2026</p>
 
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-    <!-- NAVIGATION -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">Rosa & John</div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Invitation</a></li>
-                <li><a href="rsvp.html" class="nav-link active">RSVP</a></li>
-                <li><a href="reception.html" class="nav-link">Reception</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- RSVP FORM -->
-    <div class="page-container">
-        <div class="card-border"></div>
-        <div class="floral-corner top-left" style="width: 140px; height: 140px;"></div>
-        <div class="floral-corner bottom-right" style="width: 140px; height: 140px;"></div>
-
-        <div class="page-content">
-            <div class="page-subtitle">RSVP</div>
-            <h1 class="page-title" style="margin-bottom: 20px;">Kindly Respond</h1>
-            <p style="text-align: center; font-family: 'Montserrat', sans-serif; font-size: 12px; color: var(--text-dark); margin-bottom: 30px; letter-spacing: 1px;">
-                Please confirm your attendance by July 10, 2026
-            </p>
-
-            <div class="success-message" id="successMessage">
-                Thank you! Your RSVP has been received.
+        <form id="rsvpForm" style="margin-top: 30px;">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="fullName" required>
             </div>
 
-            <form id="rsvpForm">
-                <!-- Full Name -->
-                <div class="form-group">
-                    <label for="fullName">Full Name *</label>
-                    <input type="text" id="fullName" name="fullName" required>
-                </div>
+            <div class="form-group">
+                <label>Number of Guests</label>
+                <select id="numGuests" required>
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                </select>
+            </div>
 
-                <!-- Email -->
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
+            <div class="form-group">
+                <label>Will you be attending?</label>
+                <div style="display: flex; gap: 20px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 5px; font-size: 12px;">
+                        <input type="radio" name="attendance" value="yes" required> Joyfully Accepts
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 5px; font-size: 12px;">
+                        <input type="radio" name="attendance" value="no" required> Regretfully Declines
+                    </label>
                 </div>
+            </div>
 
-                <!-- Phone -->
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
+            <div class="form-group">
+                <label>Names of Additional Guests</label>
+                <textarea id="guestNames"></textarea>
+            </div>
 
-                <!-- Number of Guests -->
-                <div class="form-group">
-                    <label for="numGuests">Number of Guests (including yourself) *</label>
-                    <select id="numGuests" name="numGuests" required>
-                        <option value="">-- Select --</option>
-                        <option value="1">1 Guest</option>
-                        <option value="2">2 Guests</option>
-                        <option value="3">3 Guests</option>
-                        <option value="4">4 Guests</option>
-                        <option value="5">5 Guests</option>
-                    </select>
-                </div>
-
-                <!-- Guest Names -->
-                <div class="form-group">
-                    <label for="guestNames">Names of Additional Guests</label>
-                    <textarea id="guestNames" name="guestNames" placeholder="Please list the names of your guests"></textarea>
-                </div>
-
-                <!-- Attendance -->
-                <div class="form-group">
-                    <label>Will you be attending? *</label>
-                    <div class="radio-group">
-                        <label>
-                            <input type="radio" name="attendance" value="yes" required> Yes, I will attend
-                        </label>
-                        <label>
-                            <input type="radio" name="attendance" value="no" required> Sorry, I cannot attend
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Dietary Restrictions -->
-                <div class="form-group">
-                    <label for="dietary">Dietary Restrictions</label>
-                    <textarea id="dietary" name="dietary" placeholder="Please let us know of any dietary restrictions"></textarea>
-                </div>
-
-                <!-- Special Requests -->
-                <div class="form-group">
-                    <label for="specialRequests">Special Requests or Messages</label>
-                    <textarea id="specialRequests" name="specialRequests" placeholder="Any special requests or messages for the couple?"></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Submit RSVP</button>
-            </form>
-        </div>
+            <button type="submit" class="submit-btn">Send RSVP</button>
+        </form>
     </div>
-
-    <script src="script.js"></script>
-    <script>
-        // Handle RSVP Form Submission
-        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const formData = new FormData(this);
-            const data = {
-                fullName: formData.get('fullName'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                numGuests: formData.get('numGuests'),
-                guestNames: formData.get('guestNames'),
-                attendance: formData.get('attendance'),
-                dietary: formData.get('dietary'),
-                specialRequests: formData.get('specialRequests'),
-                timestamp: new Date().toISOString()
-            };
-
-            // Save to localStorage (for demonstration)
-            let rsvps = JSON.parse(localStorage.getItem('rsvps')) || [];
-            rsvps.push(data);
-            localStorage.setItem('rsvps', JSON.stringify(rsvps));
-
-            // Show success message
-            document.getElementById('successMessage').classList.add('show');
-            this.reset();
-
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('successMessage').classList.remove('show');
-            }, 5000);
-        });
-    </script>
-</body>
-</html>
+</div>
