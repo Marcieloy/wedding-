@@ -1,14 +1,12 @@
-/* Color Palette & Global Variables */
 :root {
-    --burgundy: #4A121A;
-    --crimson: #721B24;
-    --dusty-rose: #C98B82;
-    --blush-pink: #FCD0C7;
-    --off-white: #FAF3F0;
-    --text-dark: #3A0C11;
+    --burgundy: #630d16;
+    --deep-red: #4a0a10;
+    --dusty-rose: #a67c7c;
+    --blush: #fdf2f0;
+    --gold: #c5a059;
+    --text-main: #2d2d2d;
 }
 
-/* Base Setup */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,31 +14,26 @@
 }
 
 body {
-    background-color: #1a1a1a;
+    background-color: #f8f8f8;
     font-family: 'Montserrat', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    padding: 0;
-    gap: 40px;
+    color: var(--text-main);
+    line-height: 1.6;
     padding-top: 80px;
 }
 
-/* NAVBAR STYLES */
+/* NAVIGATION */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: var(--burgundy);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    background-color: white;
     z-index: 1000;
     padding: 15px 0;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -50,489 +43,127 @@ body {
 
 .logo {
     font-family: 'Great Vibes', cursive;
-    font-size: 28px;
-    color: var(--blush-pink);
+    font-size: 24px;
+    color: var(--burgundy);
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 40px;
+    gap: 30px;
 }
 
 .nav-link {
-    color: var(--off-white);
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 2px;
+    color: var(--text-main);
     text-transform: uppercase;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: var(--blush-pink);
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: var(--blush-pink);
-    margin: 5px 0;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 600;
     transition: 0.3s;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: var(--burgundy);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        padding: 20px 0;
-        gap: 20px;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .hamburger {
-        display: flex;
-    }
+.nav-link:hover, .nav-link.active {
+    color: var(--burgundy);
 }
 
-/* Shared Card Container Styling */
-.invitation-card {
-    width: 100%;
-    max-width: 550px;
-    min-height: 850px;
-    background: radial-gradient(circle, var(--off-white) 60%, var(--blush-pink) 100%);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+/* INVITATION CARD DESIGN */
+.invitation-card, .page-container {
+    width: 95%;
+    max-width: 700px;
+    margin: 40px auto;
+    background: white;
     position: relative;
-    padding: 50px 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 80px 40px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.1);
     text-align: center;
     overflow: hidden;
-    border-radius: 4px;
-    margin: 0 20px 40px;
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png'); /* Subtle paper texture */
 }
 
-/* Elegant Double Line Framing Border */
+/* Floral Borders */
+.invitation-card::before, .page-container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        url('https://i.ibb.co/6R0D6S0/top-left-flowers.png'), 
+        url('https://i.ibb.co/6R0D6S0/top-left-flowers.png');
+    background-position: top left, bottom right;
+    background-repeat: no-repeat;
+    background-size: 250px;
+    transform: rotate(0deg), rotate(180deg); /* CSS doesn't support multiple transforms like this, handled via separate classes below */
+    pointer-events: none;
+    opacity: 0.9;
+    z-index: 1;
+}
+
+/* Improved Floral Placement */
+.flower-tl { position: absolute; top: -20px; left: -20px; width: 280px; z-index: 2; pointer-events: none; }
+.flower-br { position: absolute; bottom: -20px; right: -20px; width: 280px; z-index: 2; transform: rotate(180deg); pointer-events: none; }
+.flower-side { position: absolute; top: 30%; right: -10px; width: 120px; z-index: 2; opacity: 0.7; }
+
+/* Double Border Line */
 .card-border {
     position: absolute;
-    top: 20px;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    border: 1px solid var(--crimson);
-    outline: 3px double var(--crimson);
-    outline-offset: -8px;
+    top: 30px; bottom: 30px; left: 30px; right: 30px;
+    border: 1px solid var(--dusty-rose);
+    outline: 1px solid var(--dusty-rose);
+    outline-offset: -5px;
     pointer-events: none;
-    z-index: 2;
-    opacity: 0.75;
-}
-
-/* Reusable Decorative Floral SVGs */
-.floral-corner {
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: 1;
-    opacity: 0.95;
-}
-
-.top-left {
-    top: 0;
-    left: 0;
-    background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=300&q=80');
-    mix-blend-mode: multiply;
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-    filter: sepia(0.3) hue-rotate(310deg) saturate(1.8) brightness(0.8);
-}
-
-.bottom-right {
-    bottom: 0;
-    right: 0;
-    background-image: url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=300&q=80');
-    mix-blend-mode: multiply;
-    transform: rotate(180deg);
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-    filter: sepia(0.3) hue-rotate(310deg) saturate(1.8);
-}
-
-/* Typography Styles */
-.sans-light {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 11px;
-    letter-spacing: 4px;
-    color: var(--crimson);
-    text-transform: uppercase;
-    margin-bottom: 20px;
     z-index: 3;
 }
 
+/* Typography */
 .script-title {
     font-family: 'Great Vibes', cursive;
-    font-size: 75px;
+    font-size: 80px;
     color: var(--burgundy);
-    line-height: 0.9;
-    margin: 10px 0;
-    z-index: 3;
-    text-transform: none;
+    margin: 20px 0;
+    z-index: 4;
+    position: relative;
 }
 
-.ampersand {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 28px;
-    color: var(--dusty-rose);
-    margin: 5px 0;
-    z-index: 3;
+.sans-light {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 20px;
 }
 
 .serif-text {
-    font-family: 'Cinzel', serif;
-    font-size: 13px;
-    letter-spacing: 3px;
-    color: var(--text-dark);
-    line-height: 2;
-    z-index: 3;
-}
-
-.date-section {
-    margin: 30px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    z-index: 3;
-}
-
-.divider {
-    width: 60px;
-    height: 1px;
-    background-color: var(--dusty-rose);
-    margin: 5px 0;
-}
-
-.heart-divider {
-    color: var(--crimson);
-    font-size: 10px;
-    margin: 15px 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    justify-content: center;
-    z-index: 3;
-}
-
-.heart-divider::before,
-.heart-divider::after {
-    content: "";
-    width: 40px;
-    height: 1px;
-    background-color: var(--dusty-rose);
-}
-
-/* Entourage Specific Layouts */
-.entourage-container {
-    width: 100%;
-    z-index: 3;
-    margin-top: 15px;
-}
-
-.section-title {
-    font-family: 'Cinzel', serif;
-    font-size: 14px;
-    letter-spacing: 2px;
-    color: var(--burgundy);
-    font-weight: 600;
-    margin-top: 15px;
-}
-
-.subtitle-italic {
     font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 10px;
-    letter-spacing: 1px;
-    color: var(--dusty-rose);
-    margin-bottom: 8px;
-    text-transform: uppercase;
-}
-
-.names-block {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    line-height: 1.7;
-    color: var(--text-dark);
-    margin-bottom: 15px;
-}
-
-.row-grid {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    gap: 20px;
-    margin-bottom: 5px;
-}
-
-.grid-column {
-    flex: 1;
-}
-
-/* PAGE CONTAINER */
-.page-container {
-    width: 100%;
-    max-width: 550px;
-    background: radial-gradient(circle, var(--off-white) 60%, var(--blush-pink) 100%);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    position: relative;
-    padding: 50px 40px;
-    margin: 0 20px 40px;
-    overflow: hidden;
-    border-radius: 4px;
-}
-
-.page-container .card-border {
-    position: absolute;
-    top: 20px;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-}
-
-.page-content {
-    position: relative;
-    z-index: 3;
-}
-
-/* FORM STYLES */
-.form-group {
-    margin-bottom: 25px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    font-family: 'Cinzel', serif;
-    font-size: 12px;
-    letter-spacing: 2px;
-    color: var(--text-dark);
-    margin-bottom: 8px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--dusty-rose);
-    border-radius: 3px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    color: var(--text-dark);
-    background-color: rgba(255, 255, 255, 0.8);
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: var(--crimson);
-    background-color: white;
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-@media (max-width: 600px) {
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-}
-
-.radio-group {
-    display: flex;
-    gap: 30px;
-    margin-top: 10px;
-}
-
-.radio-group label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 0;
-    font-size: 13px;
-}
-
-.radio-group input[type="radio"] {
-    width: auto;
-    margin: 0;
-    padding: 0;
-    border: none;
-}
-
-/* BUTTON STYLES */
-.submit-btn {
-    width: 100%;
-    padding: 15px;
-    background-color: var(--crimson);
-    color: white;
-    border: none;
-    border-radius: 3px;
-    font-family: 'Cinzel', serif;
-    font-size: 13px;
-    letter-spacing: 2px;
-    font-weight: 600;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 10px;
-}
-
-.submit-btn:hover {
-    background-color: var(--burgundy);
-    transform: translateY(-2px);
-}
-
-.submit-btn:active {
-    transform: translateY(0);
-}
-
-/* SUCCESS MESSAGE */
-.success-message {
-    display: none;
-    background-color: #d4edda;
-    color: #155724;
-    padding: 15px;
-    border-radius: 3px;
-    margin-bottom: 20px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    text-align: center;
-}
-
-.success-message.show {
-    display: block;
-}
-
-/* PAGE TITLE */
-.page-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 50px;
-    color: var(--burgundy);
-    text-align: center;
-    margin-bottom: 30px;
-    z-index: 3;
-}
-
-.page-subtitle {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    letter-spacing: 4px;
-    color: var(--crimson);
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 30px;
-    z-index: 3;
-}
-
-/* RECEPTION STYLES */
-.venue-info {
-    background-color: rgba(255, 255, 255, 0.6);
-    padding: 20px;
-    border-left: 4px solid var(--crimson);
-    margin: 20px 0;
-    border-radius: 3px;
-}
-
-.venue-info h3 {
-    font-family: 'Cinzel', serif;
     font-size: 14px;
-    letter-spacing: 2px;
     color: var(--burgundy);
-    margin-bottom: 10px;
-    text-transform: uppercase;
 }
 
-.venue-info p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    color: var(--text-dark);
-    line-height: 1.8;
-    margin: 8px 0;
-}
+/* Entourage Grids */
+.entourage-container { position: relative; z-index: 5; margin-top: 20px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--burgundy); margin: 25px 0 10px; text-transform: uppercase; letter-spacing: 1px;}
+.subtitle-italic { font-style: italic; font-size: 10px; color: var(--dusty-rose); margin-bottom: 10px; text-transform: lowercase; letter-spacing: 1px;}
+.names-block { font-size: 12px; letter-spacing: 1px; color: #444; margin-bottom: 15px; font-weight: 500; }
 
-.map-container {
-    position: relative;
-    width: 100%;
-    height: 300px;
-    margin: 30px 0;
-    border-radius: 3px;
-    overflow: hidden;
-}
+.row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+.heart-divider { color: var(--burgundy); margin: 30px 0; font-size: 12px; display: flex; align-items: center; justify-content: center; gap: 15px; }
+.heart-divider::before, .heart-divider::after { content: ""; width: 80px; height: 1px; background: var(--dusty-rose); }
 
-.map-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
+/* Forms & Buttons */
+.form-group { text-align: left; margin-bottom: 20px; }
+.form-group label { font-size: 11px; letter-spacing: 1px; font-weight: 600; text-transform: uppercase; display: block; margin-bottom: 8px; color: var(--burgundy); }
+input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; background: #fff; font-family: 'Montserrat'; }
+.submit-btn { background: var(--burgundy); color: white; padding: 15px; width: 100%; border: none; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
+.submit-btn:hover { background: var(--deep-red); }
+
+/* RECEPTION PAGE SPECIALS */
+.venue-info { margin: 40px 0; }
+.venue-info h3 { font-family: 'Playfair Display'; color: var(--burgundy); letter-spacing: 2px; margin-bottom: 10px;}
+.map-container { border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-top: 20px; }
 
 @media (max-width: 600px) {
-    body {
-        padding-top: 70px;
-        gap: 30px;
-    }
-
-    .invitation-card,
-    .page-container {
-        max-width: 100%;
-        padding: 40px 20px;
-        margin-bottom: 30px;
-    }
-
-    .script-title {
-        font-size: 55px;
-    }
-
-    .page-title {
-        font-size: 40px;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-        font-size: 16px;
-    }
+    .row-grid { grid-template-columns: 1fr; }
+    .script-title { font-size: 60px; }
+    .invitation-card { padding: 60px 20px; }
+    .flower-tl, .flower-br { width: 180px; }
 }
